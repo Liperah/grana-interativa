@@ -15,26 +15,26 @@ const Index = () => {
               Controle Seus Gastos
               <span className="block text-white/90">de Forma Inteligente</span>
             </h1>
-            <p className="text-xl md:text-2xl mb-8 text-white/90 max-w-2xl mx-auto">
+            <p className="text-xl md:text-2xl mb-8 text-white max-w-2xl mx-auto font-medium">
               Organize suas finanças pessoais, visualize seus gastos e baixe relatórios detalhados em planilha
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Card className="p-4 bg-white/10 backdrop-blur-sm border-white/20">
+              <Card className="p-4 bg-white/20 backdrop-blur-sm border-white/30 shadow-elegant">
                 <div className="flex items-center gap-2 text-white">
                   <Calculator className="h-5 w-5" />
-                  <span className="font-medium">Cálculos Automáticos</span>
+                  <span className="font-semibold">Cálculos Automáticos</span>
                 </div>
               </Card>
-              <Card className="p-4 bg-white/10 backdrop-blur-sm border-white/20">
+              <Card className="p-4 bg-white/20 backdrop-blur-sm border-white/30 shadow-elegant">
                 <div className="flex items-center gap-2 text-white">
                   <TrendingUp className="h-5 w-5" />
-                  <span className="font-medium">Análise Visual</span>
+                  <span className="font-semibold">Análise Visual</span>
                 </div>
               </Card>
-              <Card className="p-4 bg-white/10 backdrop-blur-sm border-white/20">
+              <Card className="p-4 bg-white/20 backdrop-blur-sm border-white/30 shadow-elegant">
                 <div className="flex items-center gap-2 text-white">
                   <Download className="h-5 w-5" />
-                  <span className="font-medium">Export para Excel</span>
+                  <span className="font-semibold">Export para Excel</span>
                 </div>
               </Card>
             </div>
@@ -46,8 +46,8 @@ const Index = () => {
       <section className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold mb-4">Gerencie Suas Finanças</h2>
-            <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">Gerencie Suas Finanças</h2>
+            <p className="text-lg text-muted-foreground max-w-2xl mx-auto font-medium">
               Adicione suas receitas e despesas, categorize seus gastos e tenha uma visão completa da sua situação financeira
             </p>
           </div>
@@ -57,36 +57,36 @@ const Index = () => {
       </section>
 
       {/* Features Section */}
-      <section className="bg-muted/30 py-16">
+      <section className="bg-muted py-16">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center mb-12">Por que usar nossa ferramenta?</h2>
+          <h2 className="text-3xl font-bold text-center mb-12 text-foreground">Por que usar nossa ferramenta?</h2>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
-            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow">
+            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow border-2 border-border bg-background">
               <div className="bg-gradient-primary w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Calculator className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Fácil de Usar</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-foreground">Fácil de Usar</h3>
+              <p className="text-muted-foreground font-medium">
                 Interface intuitiva que permite adicionar gastos e receitas em segundos
               </p>
             </Card>
 
-            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow">
+            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow border-2 border-border bg-background">
               <div className="bg-gradient-income w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <PieChart className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Visualização Clara</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-foreground">Visualização Clara</h3>
+              <p className="text-muted-foreground font-medium">
                 Veja seus gastos organizados por categoria com resumos visuais
               </p>
             </Card>
 
-            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow">
+            <Card className="p-8 text-center shadow-card hover:shadow-elegant transition-shadow border-2 border-border bg-background">
               <div className="bg-gradient-expense w-16 h-16 rounded-full flex items-center justify-center mx-auto mb-4">
                 <Download className="h-8 w-8 text-white" />
               </div>
-              <h3 className="text-xl font-semibold mb-3">Export Completo</h3>
-              <p className="text-muted-foreground">
+              <h3 className="text-xl font-bold mb-3 text-foreground">Export Completo</h3>
+              <p className="text-muted-foreground font-medium">
                 Baixe uma planilha completa com todos os seus dados financeiros
               </p>
             </Card>

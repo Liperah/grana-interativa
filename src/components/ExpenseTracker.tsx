@@ -90,59 +90,60 @@ export const ExpenseTracker = () => {
     <div className="space-y-8">
       {/* Summary Cards */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="p-6 bg-gradient-income text-white shadow-elegant">
+        <Card className="p-6 bg-gradient-income text-white shadow-elegant border-0">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-income-foreground/80 text-sm font-medium">Receitas</p>
-              <p className="text-2xl font-bold">
+              <p className="text-white/90 text-sm font-medium uppercase tracking-wide">Receitas</p>
+              <p className="text-3xl font-bold">
                 {totalIncome.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
               </p>
             </div>
-            <TrendingUp className="h-8 w-8 text-income-foreground/80" />
+            <TrendingUp className="h-10 w-10 text-white/90" />
           </div>
         </Card>
 
-        <Card className="p-6 bg-gradient-expense text-white shadow-elegant">
+        <Card className="p-6 bg-gradient-expense text-white shadow-elegant border-0">
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-expense-foreground/80 text-sm font-medium">Despesas</p>
-              <p className="text-2xl font-bold">
+              <p className="text-white/90 text-sm font-medium uppercase tracking-wide">Despesas</p>
+              <p className="text-3xl font-bold">
                 {totalExpenses.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
               </p>
             </div>
-            <TrendingDown className="h-8 w-8 text-expense-foreground/80" />
+            <TrendingDown className="h-10 w-10 text-white/90" />
           </div>
         </Card>
 
-        <Card className={`p-6 shadow-elegant ${balance >= 0 ? 'bg-gradient-income' : 'bg-gradient-expense'} text-white`}>
+        <Card className={`p-6 shadow-elegant border-0 ${balance >= 0 ? 'bg-gradient-income' : 'bg-gradient-expense'} text-white`}>
           <div className="flex items-center justify-between">
             <div>
-              <p className="text-white/80 text-sm font-medium">Saldo</p>
-              <p className="text-2xl font-bold">
+              <p className="text-white/90 text-sm font-medium uppercase tracking-wide">Saldo</p>
+              <p className="text-3xl font-bold">
                 {balance.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
               </p>
             </div>
-            <DollarSign className="h-8 w-8 text-white/80" />
+            <DollarSign className="h-10 w-10 text-white/90" />
           </div>
         </Card>
       </div>
 
       {/* Add Transaction Form */}
-      <Card className="p-6 shadow-card">
-        <h3 className="text-lg font-semibold mb-4">Adicionar Transação</h3>
+      <Card className="p-6 shadow-card border-2 border-border">
+        <h3 className="text-xl font-bold mb-6 text-foreground">Adicionar Transação</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-5 gap-4">
           <div>
-            <Label htmlFor="description">Descrição</Label>
+            <Label htmlFor="description" className="text-sm font-semibold text-foreground">Descrição</Label>
             <Input
               id="description"
               value={description}
               onChange={(e) => setDescription(e.target.value)}
               placeholder="Ex: Compras no mercado"
+              className="mt-1 bg-background border-2 border-input text-foreground font-medium"
             />
           </div>
           
           <div>
-            <Label htmlFor="amount">Valor</Label>
+            <Label htmlFor="amount" className="text-sm font-semibold text-foreground">Valor</Label>
             <Input
               id="amount"
               type="number"
@@ -150,31 +151,32 @@ export const ExpenseTracker = () => {
               onChange={(e) => setAmount(e.target.value)}
               placeholder="0,00"
               step="0.01"
+              className="mt-1 bg-background border-2 border-input text-foreground font-medium"
             />
           </div>
 
           <div>
-            <Label htmlFor="type">Tipo</Label>
+            <Label htmlFor="type" className="text-sm font-semibold text-foreground">Tipo</Label>
             <Select value={type} onValueChange={(value: "income" | "expense") => setType(value)}>
-              <SelectTrigger>
+              <SelectTrigger className="mt-1 bg-background border-2 border-input text-foreground font-medium">
                 <SelectValue />
               </SelectTrigger>
-              <SelectContent>
-                <SelectItem value="income">Receita</SelectItem>
-                <SelectItem value="expense">Despesa</SelectItem>
+              <SelectContent className="bg-background border-2 border-input shadow-elegant z-50">
+                <SelectItem value="income" className="text-foreground font-medium hover:bg-muted">Receita</SelectItem>
+                <SelectItem value="expense" className="text-foreground font-medium hover:bg-muted">Despesa</SelectItem>
               </SelectContent>
             </Select>
           </div>
 
           <div>
-            <Label htmlFor="category">Categoria</Label>
+            <Label htmlFor="category" className="text-sm font-semibold text-foreground">Categoria</Label>
             <Select value={category} onValueChange={setCategory}>
-              <SelectTrigger>
+              <SelectTrigger className="mt-1 bg-background border-2 border-input text-foreground font-medium">
                 <SelectValue placeholder="Selecione" />
               </SelectTrigger>
-              <SelectContent>
+              <SelectContent className="bg-background border-2 border-input shadow-elegant z-50">
                 {CATEGORIES[type].map((cat) => (
-                  <SelectItem key={cat} value={cat}>
+                  <SelectItem key={cat} value={cat} className="text-foreground font-medium hover:bg-muted">
                     {cat}
                   </SelectItem>
                 ))}
@@ -183,7 +185,7 @@ export const ExpenseTracker = () => {
           </div>
 
           <div className="flex items-end">
-            <Button onClick={addTransaction} className="w-full bg-gradient-primary shadow-elegant hover:opacity-90 transition-opacity">
+            <Button onClick={addTransaction} className="w-full bg-gradient-primary shadow-elegant hover:opacity-90 transition-opacity text-white font-semibold">
               <PlusCircle className="h-4 w-4 mr-2" />
               Adicionar
             </Button>
@@ -193,33 +195,33 @@ export const ExpenseTracker = () => {
 
       {/* Transactions List */}
       {transactions.length > 0 && (
-        <Card className="p-6 shadow-card">
-          <div className="flex justify-between items-center mb-4">
-            <h3 className="text-lg font-semibold">Histórico de Transações</h3>
+        <Card className="p-6 shadow-card border-2 border-border">
+          <div className="flex justify-between items-center mb-6">
+            <h3 className="text-xl font-bold text-foreground">Histórico de Transações</h3>
             <Button 
               onClick={downloadSpreadsheet}
               variant="outline"
-              className="shadow-card hover:shadow-elegant transition-shadow"
+              className="shadow-card hover:shadow-elegant transition-shadow border-2 border-primary text-primary hover:bg-primary hover:text-white font-semibold"
             >
               <Download className="h-4 w-4 mr-2" />
               Baixar Planilha
             </Button>
           </div>
           
-          <div className="space-y-3 max-h-80 overflow-y-auto">
+          <div className="space-y-4 max-h-80 overflow-y-auto">
             {transactions.map((transaction) => (
               <div
                 key={transaction.id}
-                className="flex justify-between items-center p-3 rounded-lg border bg-muted/30"
+                className="flex justify-between items-center p-4 rounded-lg border-2 border-border bg-card shadow-card"
               >
                 <div className="flex-1">
-                  <p className="font-medium">{transaction.description}</p>
-                  <p className="text-sm text-muted-foreground">
+                  <p className="font-bold text-foreground text-base">{transaction.description}</p>
+                  <p className="text-sm text-muted-foreground font-medium">
                     {transaction.category} • {transaction.date}
                   </p>
                 </div>
                 <div className={`text-right ${transaction.type === 'income' ? 'text-income' : 'text-expense'}`}>
-                  <p className="font-semibold">
+                  <p className="font-bold text-lg">
                     {transaction.type === "income" ? "+" : "-"}
                     {transaction.amount.toLocaleString("pt-BR", { style: "currency", currency: "BRL" })}
                   </p>
